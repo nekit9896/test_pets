@@ -3,8 +3,8 @@ from dataclasses import asdict
 import allure
 import pytest
 
-from PetsTests.data.pet_objects import Pet, Category, Tag
-from PetsTests.request_logic.logic import client
+from data.pet_objects import Category, Pet, Tag
+from request_logic.logic import client
 
 
 @pytest.fixture

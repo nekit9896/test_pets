@@ -1,5 +1,5 @@
-from PetsTests.data.constants import BASE_URL
-from PetsTests.request_logic.request_pets import RequestPets
+from data.constants import BASE_URL
+from request_logic.request_pets import RequestPets
 
 
 class Logic(RequestPets):
@@ -37,7 +37,7 @@ class Logic(RequestPets):
         expected_status_code: int = 200,
     ):
         response = self.modify_put(
-            f"/pet", data, need_check_status_code, expected_status_code
+            "/pet", data, need_check_status_code, expected_status_code
         )
         return response.json()
 

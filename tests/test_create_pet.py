@@ -1,8 +1,8 @@
 import allure
 import pytest
 
-from PetsTests.helpers.validators import response_body_validator
-from PetsTests.request_logic.logic import client
+from helpers.validators import response_body_validator
+from request_logic.logic import client
 
 
 @allure.suite("CreatePet")

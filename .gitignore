@@ -1,0 +1,5 @@
+.idea/*
+__pycache__/*
+allure-results/*
+*__pycache__*
+.flake8

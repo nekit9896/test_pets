@@ -1,5 +1,5 @@
 import allure
-from assertpy import soft_assertions, assert_that
+from assertpy import assert_that, soft_assertions
 
 
 def response_body_validator(testing_object, comparison_object):

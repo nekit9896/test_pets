@@ -3,9 +3,9 @@ from dataclasses import asdict
 import allure
 import pytest
 
-from PetsTests.data.pet_objects import Pet, Category, Tag
-from PetsTests.helpers.validators import response_body_validator
-from PetsTests.request_logic.logic import client
+from data.pet_objects import Category, Pet, Tag
+from helpers.validators import response_body_validator
+from request_logic.logic import client
 
 
 @allure.suite("UpdatePet")
@@ -82,13 +82,16 @@ def test_update_pet_success(custom_pet_object):
 )
 def test_update_pet_fail(custom_pet_object):
     """
-    400	Invalid ID supplied - этот ответ должен быть отправлен сервером, если передаваемый ID имеет неверный формат. Если API ожидает число (например, 444444), а мы пеередаем его списком со строкой ['444444'], но в ответ прилетает 500
+    400	Invalid ID supplied - этот ответ должен быть отправлен сервером, если передаваемый ID имеет неверный формат.
+    Если API ожидает число (например 444444), а мы пеередаем его списком со строкой ['444444'], но в ответ прилетает 500
     В результате тест ожидаемо падает из-за бага
     """
     with allure.step("Создание питомца"):
         client.create_pets(custom_pet_object)
 
-    with allure.step("Обновление данных питомца с некорректными данными и проверка статус кода"):
+    with allure.step(
+        "Обновление данных питомца с некорректными данными и проверка статус кода"
+    ):
         # Подготовим новый объект измененными category_id и pet_name
         prepare_pet_object = Pet(
             id=444444,
@@ -102,4 +105,3 @@ def test_update_pet_fail(custom_pet_object):
         pet = asdict(prepare_pet_object)
         pet["id"] = ["444444"]
         client.update_pets(pet, expected_status_code=400)
-

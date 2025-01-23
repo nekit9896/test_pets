@@ -1,9 +1,9 @@
 import allure
 import pytest
 
-from PetsTests.data.constants import FAKE_PET_ID
-from PetsTests.helpers.validators import response_body_validator
-from PetsTests.request_logic.logic import client
+from data.constants import FAKE_PET_ID
+from helpers.validators import response_body_validator
+from request_logic.logic import client
 
 
 @allure.suite("GetPet")

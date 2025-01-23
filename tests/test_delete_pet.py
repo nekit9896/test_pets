@@ -2,8 +2,8 @@ import allure
 import pytest
 from assertpy import assert_that
 
-from PetsTests.data.constants import FAKE_PET_ID
-from PetsTests.request_logic.logic import client
+from data.constants import FAKE_PET_ID
+from request_logic.logic import client
 
 
 @allure.suite("DeletePet")
